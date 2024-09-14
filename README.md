@@ -2,7 +2,7 @@
 
 ## Introduction
 
-#### The global demand for energy continues to rise, driven by population growth, economic development, and technological advancements. Understanding patterns and trends in world energy consumption is crucial for policy-makers, businesses, and researchers alike. This project aims to conduct a comprehensive data analysis of world energy consumption data to uncover insights that can inform decision-making and future planning.
+#### The global energy demand continues to rise, driven by population growth, economic development, and technological advancements. Understanding patterns and trends in world energy consumption is crucial for policy-makers, businesses, and researchers alike. This project aims to conduct a comprehensive data analysis of world energy consumption data to uncover insights that can inform decision-making and future planning.
 
 ### Objectives 
 
@@ -18,13 +18,13 @@
 
 <li>Energy Source Analysis: Assess the contribution of various energy sources (e.g., fossil fuels, nuclear, renewables) to global energy consumption trends.</li>
 
-<li>orecasting and Predictive Modeling: Utilize time series analysis techniques to forecast future energy consumption trends based on historical data and external factors (e.g., population growth, technological advancements)</li>
+<li>forecasting and Predictive Modeling: Utilize time series analysis techniques to forecast future energy consumption trends based on historical data and external factors (e.g., population growth, technological advancements)</li>
 
 ### Methodology
 
 <li>Data Sources: Utilize publicly available datasets from reputable sources such as international energy agencies, research institutions, and government reports.</li>
   
-<li>Tools: Employ statistical software (e.g., Python with libraries like Pandas, Matplotlib, and NumPy) for data manipulation, visualization, and modeling.</li>
+<li>Tools: Employ statistical software (e.g., Python with libraries like Pandas, Matplotlib, and NumPy) for data manipulation, visualization, and modelling.</li>
 
 <li>Analytical Techniques: Apply descriptive statistics, regression analysis, clustering techniques, and time series analysis where applicable.</li>
 
@@ -56,9 +56,8 @@
 
 <a href = https://github.com/owid/etl/blob/master/etl/steps/data/garden/energy/2023-07-10/energy_mix.py > Energy mix (Our World in Data based on EI's Statistical review of world energy ) </a>
 
-<a href = https://github.com/owid/etl/blob/master/etl/steps/data/garden/energy/2023-07-10/fossil_fuel_production.py >Fossil fuel production (Our World in Data based on EI's Statistical review of world energy & The Shift Dataportal's Energy from fossil fuels</a>
+<a href = https://github.com/owid/etl/blob/master/etl/steps/data/garden/energy/2023-07-10/fossil_fuel_production.py >Fossil fuel production (Our World in Data based on EI's Statistical review of world energy & The Shift Dataportal's Energy from fossil fuels)</a>
 
-< a href = https://github.com/owid/etl/blob/master/etl/steps/data/garden/energy/2023-07-10/primary_energy_consumption.py> Primary energy consumption (Our World in Data based on EI's Statistical review of world energy & EIA's International energy data) </a>
+<a href = https://github.com/owid/etl/blob/master/etl/steps/data/garden/energy/2023-07-10/primary_energy_consumption.py>Primary energy consumption (Our World in Data based on EI's Statistical review of world energy & EIA's International energy data)</a> 
 
-< a href = 
 
