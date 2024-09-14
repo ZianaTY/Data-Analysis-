@@ -1,42 +1,72 @@
 # An Analysis of World Energy Consumption Data
+import subprocess
+import os
+import shutil
 
-## Introduction
+def run_command(command):
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    output, error = process.communicate()
+    if process.returncode != 0:
+        print(f"Error: {error.decode('utf-8')}")
+        return False
+    return True
 
-#### The global energy demand continues to rise, driven by population growth, economic development, and technological advancements. Understanding patterns and trends in world energy consumption is crucial for policy-makers, businesses, and researchers alike. This project aims to conduct a comprehensive data analysis of world energy consumption data to uncover insights that can inform decision-making and future planning.
 
-### Objectives 
+repo_path = "/" 
+branch_name = "Visualisation"
+file_name = "interactive_coal_data_faceted.html"
+file_path = "/Users/soofiya/Downloads/interactive_coal_data_faceted.html"  
+commit_message = "Add interactive coal data graph"
+remote_name = "origin"  # Usually "origin" for GitHub
 
-<li>Data Collection: Gather comprehensive datasets on global energy consumption across different sectors (e.g., residential, industrial, transportation) and energy sources (e.g., fossil fuels, renewables).</li>
+# Change to the repository directory
+os.chdir(repo_path)
 
-<li>Exploratory Data Analysis (EDA): Perform EDA to understand the distribution, trends, and patterns in energy consumption over time and across regions. This includes visualizing data through charts, graphs, and statistical summaries.</li>
+# Checkout the existing visualization branch
+if not run_command(f"git checkout {branch_name}"):
+    print(f"Failed to checkout {branch_name} branch")
+    exit(1)
 
-<li>Temporal Analysis: Analyze how energy consumption has evolved over the past few decades, identifying significant changes, seasonal variations, and long-term trends.</li>
+# Pull the latest changes from the remote branch
+if not run_command(f"git pull {remote_name} {branch_name}"):
+    print(f"Failed to pull latest changes from {branch_name}")
+    exit(1)
 
-<li>Sectoral Analysis: Compare energy consumption across different sectors (e.g., residential, commercial, industrial) to identify sector-specific patterns and shifts.</li>
+# Copy the HTML file from storage to the repository
+try:
+    shutil.copy2(file_path, os.path.join(repo_path, file_name))
+    print(f"Copied {file_name} to the repository")
+except Exception as e:
+    print(f"Failed to copy the file: {str(e)}")
+    exit(1)
 
-<li>Geographical Analysis: Investigate regional disparities in energy consumption, considering factors such as economic development, climate, and policy frameworks.</li>
+# Add the HTML file
+if not run_command(f"git add {file_name}"):
+    print("Failed to add the HTML file")
+    exit(1)
 
-<li>Energy Source Analysis: Assess the contribution of various energy sources (e.g., fossil fuels, nuclear, renewables) to global energy consumption trends.</li>
+# Commit the changes
+if not run_command(f'git commit -m "{commit_message}"'):
+    print("Failed to commit changes")
+    exit(1)
 
-<li>forecasting and Predictive Modeling: Utilize time series analysis techniques to forecast future energy consumption trends based on historical data and external factors (e.g., population growth, technological advancements)</li>
+# Push the changes to GitHub
+if not run_command(f"git push {remote_name} {branch_name}"):
+    print("Failed to push to GitHub")
+    exit(1)
 
-### Methodology
+print(f"Successfully pushed {file_name} to {branch_name} branch on GitHub")
 
-<li>Data Sources: Utilize publicly available datasets from reputable sources such as international energy agencies, research institutions, and government reports.</li>
-  
-<li>Tools: Employ statistical software (e.g., Python with libraries like Pandas, Matplotlib, and NumPy) for data manipulation, visualization, and modelling.</li>
+# Generate the GitHub preview link
+github_username = "your_github_username"  # Replace with your GitHub username
+repo_name = "Data Analysis"  # Replace with your actual repository name
 
-<li>Analytical Techniques: Apply descriptive statistics, regression analysis, clustering techniques, and time series analysis where applicable.</li>
+preview_link = f"https://htmlpreview.github.io/?https://github.com/{github_username}/{repo_name}/blob/{branch_name}/{file_name}"
+print(f"\nYou can view your interactive graph at:\n{preview_link}")
 
-<li>Visualization: Generate clear and informative visualizations (e.g., heatmaps, time series plots, choropleth maps) to present findings effectively.</li>
-
-### Expected Outcomes
-
-<li>Identify key drivers influencing global energy consumption trends.</li>
-
-<li>Provide insights into sectoral and regional variations in energy demand.</li>
-
-<li>Inform policy-makers, energy planners, and stakeholders about future energy needs and opportunities.</li>
+# Instructions for adding link to README
+print("\nTo add this link to your README.md, you can use the following Markdown:")
+print(f"[View Interactive Coal Data Graph]({preview_link})")
 
 ### References
 <a href =https://ourworldindata.org >Our World in Data </a>
